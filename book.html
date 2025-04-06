@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .left, .right {
+            width: 50%;
+            padding: 20px;
+        }
+        .left img {
+            width: 100%;
+            height: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        select, input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="images/bookp.jpg" alt="Brand Image">
+        </div>
+        <div class="right">
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="destination">Where to</label>
+                    <select id="destination" required>
+                        <option value="">Select a place</option>
+                        <option value="paris">Paris</option>
+                        <option value="new-york">New York</option>
+                        <option value="tokyo">Tokyo</option>
+                        <option value="sydney">Sydney</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="persons">How Many Persons</label>
+                    <input type="number" id="persons" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="date" id="endDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" minlength="50" maxlength="500" required></textarea>
+                </div>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("startDate").setAttribute("min", new Date().toISOString().split("T")[0]);
+
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let startDate = new Date(document.getElementById("startDate").value);
+            let endDate = new Date(document.getElementById("endDate").value);
+            let description = document.getElementById("description").value;
+            
+            if (endDate <= startDate) {
+                alert("End date must be greater than start date");
+                return;
+            }
+            if (description.length < 50 || description.length > 500) {
+                alert("Description must be between 50 and 500 characters.");
+                return;
+            }
+            alert("Booking successful");
+        });
+</script>
+</body>
+</html>

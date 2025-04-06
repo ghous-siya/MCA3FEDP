@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .card {
+            background: white;
+            width: 30%;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .card h3 {
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+        .price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .rating {
+            color: gold;
+            margin-bottom: 10px;
+        }
+        .book-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .book-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Package Gallery</h2>
+    <div class="container">
+        <!-- Package Cards -->
+        <script>
+            let packages = [
+                {name: "Paris", img: "images/paris.jpg", attractions: "Eiffel Tower, Louvre Museum, Seine River Cruise", price: "$1200", rating: "⭐⭐⭐⭐"},
+                {name: "New York", img: "images/newyork.jpg", attractions: "Statue of Liberty, Central Park, Times Square", price: "$1500", rating: "⭐⭐⭐⭐⭐"},
+                {name: "Tokyo", img: "images/tokyo.jpg", attractions: "Mount Fuji, Shibuya Crossing, Akihabara", price: "$1300", rating: "⭐⭐⭐⭐"},
+                {name: "Sydney", img: "images/sydney.jpg", attractions: "Opera House, Bondi Beach, Harbour Bridge", price: "$1400", rating: "⭐⭐⭐⭐"},
+                {name: "Rome", img: "images/rome.jpg", attractions: "Colosseum, Vatican City, Trevi Fountain", price: "$1250", rating: "⭐⭐⭐⭐"},
+                {name: "London", img: "images/london.jpg", attractions: "Big Ben, Tower of London, Buckingham Palace", price: "$1350", rating: "⭐⭐⭐⭐⭐"},
+                {name: "Dubai", img: "images/dubai.jpg", attractions: "Burj Khalifa, Desert Safari, Dubai Mall", price: "$1600", rating: "⭐⭐⭐⭐⭐"},
+                {name: "Bali", img: "images/bali.jpg", attractions: "Uluwatu Temple, Rice Terraces, Beaches", price: "$1100", rating: "⭐⭐⭐⭐"},
+                {name: "turkey", img: "images/turkey.jpg", attractions: "The Blue mosque, Antalya, Isthanbul", price: "$1700", rating: "⭐⭐⭐⭐⭐"},
+                {name: "Singapore", img: "images/singapore.jpg", attractions: "Marina Bay Sands, Sentosa Island, Gardens by the Bay", price: "$1250", rating: "⭐⭐⭐⭐"}
+            ];
+            packages.forEach(pkg => {
+                document.write(`
+                    <div class="card">
+                        <img src="${pkg.img}" alt="${pkg.name}">
+                        <h3>${pkg.name}</h3>
+                        <p>${pkg.attractions}</p>
+                        <div class="price">${pkg.price}</div>
+                        <div class="rating">${pkg.rating}</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                `);
+            });
+        </script>
+    </div>
+</body>
+</html>
